@@ -1,7 +1,7 @@
 {
   "name": "@richarddorian/speactive",
   "version": "1.0.0",
-  "description": "A library for building reactive user interfaces for the web and is fully typed.",
+  "description": "A fully typed library for building reactive user interfaces for the web.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
