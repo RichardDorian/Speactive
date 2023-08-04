@@ -6,7 +6,7 @@ import type { AnyObject, KeysOfType } from './types';
  */
 type MatchingFields<
   SourceComponentFields extends AnyObject,
-  TargetComponentFields extends AnyObject
+  TargetComponentFields extends AnyObject,
 > = {
   [SourceField in keyof SourceComponentFields]: {
     source: SourceField;
@@ -53,10 +53,10 @@ type MatchingFields<
  */
 export function delegate<
   SourceComponentFields extends AnyObject,
-  TargetComponentFields extends AnyObject
+  TargetComponentFields extends AnyObject,
 >(
   rememberedArg: RememberedArg<SourceComponentFields>,
-  fields: MatchingFields<SourceComponentFields, TargetComponentFields>[]
+  fields: MatchingFields<SourceComponentFields, TargetComponentFields>[],
 ): RememberedArg<TargetComponentFields> {
   // @ts-ignore as we dynamically add the fields to the remembered object
   return rememberedArg

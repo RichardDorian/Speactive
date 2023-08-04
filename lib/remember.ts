@@ -9,7 +9,7 @@ export const forgetSymbol: unique symbol = Symbol.for('forget');
 export type Remembered<T extends AnyObject> = T & {
   [rememberSymbol]: (
     component: Component<any, any>,
-    remembered: RememberedArg<T>
+    remembered: RememberedArg<T>,
   ) => void;
   [forgetSymbol]: (component: Component<any, any>) => void;
 };
@@ -57,7 +57,7 @@ export function remember<T extends AnyObject>(initialData: T): Remembered<T> {
       if (p === rememberSymbol)
         return (
           component: Component<any, any>,
-          remembered: RememberedArg<T>
+          remembered: RememberedArg<T>,
         ) => {
           subscribers.set(component, remembered);
         };

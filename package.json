@@ -7,6 +7,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "prettier --check .",
     "build": "tsc"
   },
   "repository": {
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/RichardDorian/speactive#readme",
   "devDependencies": {
+    "prettier": "^3.0.1",
     "typescript": "^5.1.6"
   },
   "files": [

@@ -47,7 +47,7 @@ class TextComponent extends Component<TextFields, 'span'> {
   // what property of the remembered object are also included in this object.
   public constructor(
     dataSources: DataSources<TextFields>,
-    remembered: RememberedArg<TextFields>
+    remembered: RememberedArg<TextFields>,
   ) {
     // Calling the constructor of the Component class. We pass the data sources and the
     // remembered argument. The second argument is the tag of the root element. The `root`
@@ -83,7 +83,7 @@ class Button extends Component<ButtonFields, 'button'> {
 
   public constructor(
     dataSources: DataSources<ButtonFields>,
-    remembered: RememberedArg<ButtonFields>
+    remembered: RememberedArg<ButtonFields>,
   ) {
     super(dataSources, 'button', remembered);
 
@@ -137,7 +137,7 @@ const textUI = new TextComponent(
       // The text field depends on the value member of the remembered object
       text: ['value'],
     },
-  ]
+  ],
 );
 
 // Increment every 100ms

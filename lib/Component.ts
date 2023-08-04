@@ -47,7 +47,7 @@ export type Updaters<Fields> = Map<keyof Fields, (oldValue?: any) => any>;
  */
 export abstract class Component<
   Fields extends AnyObject,
-  RootElementTag extends keyof HTMLElementTagNameMap
+  RootElementTag extends keyof HTMLElementTagNameMap,
 > {
   /** Object containing the data source functions for the component fields */
   public dataSources: DataSources<Fields>;
@@ -68,7 +68,7 @@ export abstract class Component<
   public constructor(
     dataSources: DataSources<Fields>,
     rootTag: RootElementTag,
-    remembered: RememberedArg<Fields>
+    remembered: RememberedArg<Fields>,
   ) {
     this.dataSources = dataSources;
     this.updaters = new Map();
@@ -92,7 +92,7 @@ export abstract class Component<
    */
   public setInnerText(
     fieldName: KeysOfType<Fields, string>,
-    element: HTMLElement = this.root
+    element: HTMLElement = this.root,
   ) {
     const updater = () => {
       const dataSource = this.dataSources[fieldName];
@@ -118,7 +118,7 @@ export abstract class Component<
   public setAttribute(
     attributeName: string,
     fieldName: KeysOfType<Fields, string>,
-    element: HTMLElement = this.root
+    element: HTMLElement = this.root,
   ) {
     const updater = () => {
       const dataSource = this.dataSources[fieldName];
@@ -148,7 +148,7 @@ export abstract class Component<
   public setCSSStyle(
     style: keyof CSSStyleDeclaration,
     fieldName: keyof Fields,
-    element: HTMLElement = this.root
+    element: HTMLElement = this.root,
   ) {
     const updater = () => {
       const dataSource = this.dataSources[fieldName];
