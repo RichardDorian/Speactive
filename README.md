@@ -31,21 +31,35 @@ interface TextFields {
   text: string;
 }
 
-// First generic represents the fields for this component (a.k.a. props in React but my french brain named it fields don't ask why).
-// Second generic is the tag name for the root HTML element (this is the part where it needs to be improved as we see the same string in the constructor)
+// First generic represents the fields for this component (a.k.a.
+// props in React but my french brain named it fields don't ask why).
+
+// Second generic is the tag name for the root HTML element (this is the part
+// where it needs to be improved as we see the same string in the constructor)
 class TextComponent extends Component<TextFields, 'span'> {
   // Let the boiler plate begin!
 
-  // The dataSources argument is an object containing a function for each field. This function is called a data source.
-  // The second argument is the remembered argument. An array of objects, each object represents a remembered object. Other details such as which field uses what property of the remembered object are also included in this object.
+  // The dataSources argument is an object containing a function
+  // for each field. This function is called a data source.
+
+  // The second argument is the remembered argument. An array of objects, each
+  // object represents a remembered object. Other details such as which field uses
+  // what property of the remembered object are also included in this object.
   public constructor(
     dataSources: DataSources<TextFields>,
     remembered: RememberedArg<TextFields>
   ) {
-    // Calling the constructor of the Component class. We pass the data sources and the remembered argument. The second argument is the tag of the root element. The `root` property is created by the superclass constructor. The root element can be accessed with `this.root`. And it is typed which means putting span here will result in `this.root` being an `HTMLSpanElement`, etc.
+    // Calling the constructor of the Component class. We pass the data sources and the
+    // remembered argument. The second argument is the tag of the root element. The `root`
+    // property is created by the superclass constructor. The root element can be accessed
+    // with `this.root`. And it is typed which means putting span here will result in `this.root`
+    // being an `HTMLSpanElement`, etc.
     super(dataSources, 'span', remembered);
 
-    // Here we set the inner text of span element with the content of the text data source (text field). Every time the text field value is updated the updater created by this method will run and update the inner text. This method can take a second element which is which element to set the inner text of. By default it is the root element.
+    // Here we set the inner text of span element with the content of the text data source (text field).
+    // Every time the text field value is updated the updater created by this method will run and update
+    // the inner text. This method can take a second element which is which element to set the inner text
+    // of. By default it is the root element.
     super.setInnerText('text');
   }
 }
