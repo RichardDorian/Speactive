@@ -8,5 +8,5 @@
     "removeComments": false,
     "sourceMap": true
   },
-  "include": ["src/**/*"]
+  "include": ["lib/**/*"]
 }
