@@ -181,7 +181,8 @@ export abstract class Component<
     this.root.remove();
 
     this.updaters.clear();
-    Object.assign(this.dataSources, {});
+    for (const property of Object.getOwnPropertyNames(this.dataSources))
+      delete this.dataSources[property];
 
     for (const remembered of this.remembered) {
       const rememberObject = remembered['_#remember'];
