@@ -31,8 +31,6 @@ export type RememberedArg<Fields> = ({
 export function remember<T extends AnyObject>(initialData: T): Remembered<T> {
   const subscribers = new Map<Component<any, any>, RememberedArg<T>>();
 
-  console.log('Hello World!');
-
   return new Proxy(initialData, {
     set(target, p, newValue) {
       const oldValue = Reflect.get(target, p, target);
