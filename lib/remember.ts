@@ -37,11 +37,18 @@ export function remember<T extends AnyObject>(initialData: T): Remembered<T> {
       const returnValue = Reflect.set(target, p, newValue, target);
 
       for (const subscriber of subscribers) {
+        const rememberedArg = subscriber[1];
+
         const fieldsToUpdate: string[] = [];
-        for (const field in subscriber[1]) {
-          if (field === '_#remember') continue;
-          // @ts-ignore
-          if (subscriber[1][field]?.includes(p)) fieldsToUpdate.push(field);
+
+        for (const rememberedObj of rememberedArg) {
+          for (const field of Object.keys(rememberedObj)) {
+            if (field === '_#remember') continue;
+
+            if (rememberedObj[field]?.includes(p as string)) {
+              fieldsToUpdate.push(field);
+            }
+          }
         }
 
         for (const field of fieldsToUpdate) {
